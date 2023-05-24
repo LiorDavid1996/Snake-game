@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 export const GameWrapper = styled.div`
@@ -6,7 +7,13 @@ export const GameWrapper = styled.div`
   align-items: center;
   outline: none;
   flex-direction: column;
+  
 `;
+
+export const title = styled.h1`
+color:white
+
+`
 
 export const Score = styled.h1`
   background: linear-gradient(to left, #753ad5, #d53a9d);

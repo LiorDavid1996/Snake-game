@@ -33,8 +33,6 @@ const Canvas = forwardRef<HTMLCanvasElement, CanvasProps>(
 
     return (<>
     <S.Canvas ref={canvasRef as any} {...props}/>
-    
-    <h2>"llll</h2>
   </>  
     )
    
