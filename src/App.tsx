@@ -5,9 +5,12 @@ import Game from './game/Game'
 
 function App() {
   return (
-    
+    <>
+    <div style={{display:'flex' ,justifyContent:'center' }}>
+    <h1 className='font-link title' >SNAKE GAME</h1>
+    </div>
     <Game/>
-    
+    </>
   );
 }
 

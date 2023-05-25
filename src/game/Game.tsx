@@ -1,8 +1,9 @@
 import Canvas from "../canvas/Canvas"
- import { GameWrapper ,Score ,title} from "./Game.styles";
+ import { GameWrapper  } from "./Game.styles";
  import draw from "../draw/draw";
  import useGameLogic from "./useGameLogic";
 import { useRef, useState } from "react";
+import Score from "./Score";
 
 interface GameProps{}
 
@@ -28,19 +29,21 @@ const {snakeBody,onKeyDownHandler,foodPosition,resetGameState} = useGameLogic({
       const drawGame = (ctx: CanvasRenderingContext2D) => {
      draw({ctx,snakeBody,foodPosition})
   };
- return(<>
-     <title>SNAKE GAME</title>
- <GameWrapper tabIndex={0} onKeyDown={onKeyDownHandler}>
+ return(
+     <>
+       <Score score={(snakeBody.length - 1) * 10} gameOver={gameState}/>
+      <GameWrapper tabIndex={0} onKeyDown={onKeyDownHandler}>
     <Canvas ref={canvasRef} width={400} height={200} draw={drawGame }/>
     {gameState === GameState.GAME_OVER ? (
         <button onClick={() => {
             setGameState(GameState.RUNNING)
+            resetGameState()
         }}>play again</button>
     ):( <button onClick={()=>{
         setGameState(gameState === GameState.RUNNING ? GameState.PAUSED : GameState.RUNNING)
     }}>{gameState === GameState.RUNNING? "pause": "play"}</button>)}
-    <Score>{`Your score: ${(snakeBody.length-1)*10}`}</Score>
-    <h1>wht the fuck</h1>
+    
+    
  </GameWrapper>
  </>
     )
