@@ -1,9 +1,10 @@
 import Canvas from "../canvas/Canvas"
- import { GameWrapper  } from "./Game.styles";
+ import { GameWrapper , PlayStop  } from "./Game.styles";
  import draw from "../draw/draw";
  import useGameLogic from "./useGameLogic";
 import { useRef, useState } from "react";
 import Score from "./Score";
+import TryAgain from "./TryAgain";
 
 interface GameProps{}
 
@@ -29,8 +30,10 @@ const {snakeBody,onKeyDownHandler,foodPosition,resetGameState} = useGameLogic({
       const drawGame = (ctx: CanvasRenderingContext2D) => {
      draw({ctx,snakeBody,foodPosition})
   };
+
  return(
      <>
+     {gameState=== GameState.GAME_OVER&&<TryAgain gameState={gameState} setGameState={setGameState} resetGameState={resetGameState}  />}
        <Score score={(snakeBody.length - 1) * 10} gameOver={gameState}/>
       <GameWrapper tabIndex={0} onKeyDown={onKeyDownHandler}>
     <Canvas ref={canvasRef} width={400} height={200} draw={drawGame }/>
