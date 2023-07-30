@@ -11,6 +11,7 @@ import createSnakeMovement, {
 export interface Position {
   x: number;
   y: number;
+  angle?: number ;
 }
 
 export enum Direction {

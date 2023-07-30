@@ -26,6 +26,7 @@ if(gameOver===GameState.GAME_OVER){
            <Number>{score}</Number>
            <Image src="tropy-9.png"/>
            {localStorage.getItem("bestScore")===null?  `${bestScore}`:localStorage.getItem("bestScore")}
+           
         </ScoreWrapper>
         
     )

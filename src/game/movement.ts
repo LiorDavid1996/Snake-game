@@ -1,9 +1,7 @@
 import { Direction, Position } from './useGameLogic';
 
 const createSnakeMovement = (gridSize = 5) => ({
-    moveRight: (snakeBody: Position[]) => {
-        console.log("kkk");
-        
+    moveRight: (snakeBody: Position[]) => { 
       const bodyCopy = [...snakeBody];
       const headPos = bodyCopy[bodyCopy.length - 1];
       bodyCopy.shift();
